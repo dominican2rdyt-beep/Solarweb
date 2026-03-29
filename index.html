@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sistema Solar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Exo+2:wght@300;400;700;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- Starfield canvas -->
+  <canvas id="stars"></canvas>
+
+  <!-- Shooting stars -->
+  <div class="shooters">
+    <div class="shooter s1"></div>
+    <div class="shooter s2"></div>
+    <div class="shooter s3"></div>
+  </div>
+
+  <div class="wrapper">
+
+    <header class="site-header">
+      <div class="header-tag">✦ EXPLORACIÓN ESPACIAL ✦</div>
+      <h1>SISTEMA <span class="gold">SOLAR</span></h1>
+      <p class="header-sub">Haz click en un planeta para descubrir sus secretos</p>
+    </header>
+
+    <!-- Solar system visual -->
+    <div class="solar-scene">
+      <div class="sun-wrap">
+        <div class="sun-corona"></div>
+        <div class="sun-corona c2"></div>
+        <div class="sun" onclick="openPanel('sol')">
+          <span>☀️</span>
+        </div>
+      </div>
+
+      <!-- Orbits + planets -->
+      <div class="orbits">
+
+        <div class="orbit o1">
+          <div class="planet-dot p-mercurio" onclick="openPanel('mercurio')" style="--delay:0s">
+            <div class="planet mercury"></div>
+            <div class="planet-label">Mercurio</div>
+          </div>
+        </div>
+
+        <div class="orbit o2">
+          <div class="planet-dot p-venus" onclick="openPanel('venus')" style="--delay:-4s">
+            <div class="planet venus"></div>
+            <div class="planet-label">Venus</div>
+          </div>
+        </div>
+
+        <div class="orbit o3">
+          <div class="planet-dot p-tierra" onclick="openPanel('tierra')" style="--delay:-8s">
+            <div class="planet tierra"></div>
+            <div class="planet-label">Tierra</div>
+          </div>
+        </div>
+
+        <div class="orbit o4">
+          <div class="planet-dot p-marte" onclick="openPanel('marte')" style="--delay:-3s">
+            <div class="planet marte"></div>
+            <div class="planet-label">Marte</div>
+          </div>
+        </div>
+
+        <div class="orbit o5">
+          <div class="planet-dot p-jupiter" onclick="openPanel('jupiter')" style="--delay:-12s">
+            <div class="planet jupiter"></div>
+            <div class="planet-label">Júpiter</div>
+          </div>
+        </div>
+
+        <div class="orbit o6">
+          <div class="planet-dot p-saturno" onclick="openPanel('saturno')" style="--delay:-6s">
+            <div class="planet saturno-wrap">
+              <div class="saturno-ring"></div>
+              <div class="saturno-body"></div>
+            </div>
+            <div class="planet-label">Saturno</div>
+          </div>
+        </div>
+
+        <div class="orbit o7">
+          <div class="planet-dot p-urano" onclick="openPanel('urano')" style="--delay:-9s">
+            <div class="planet urano"></div>
+            <div class="planet-label">Urano</div>
+          </div>
+        </div>
+
+        <div class="orbit o8">
+          <div class="planet-dot p-neptuno" onclick="openPanel('neptuno')" style="--delay:-15s">
+            <div class="planet neptuno"></div>
+            <div class="planet-label">Neptuno</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Planet grid cards -->
+    <section class="planet-grid">
+      <div class="grid-card" onclick="openPanel('mercurio')">
+        <div class="gc-planet mercury sm"></div>
+        <div class="gc-info">
+          <div class="gc-name">Mercurio</div>
+          <div class="gc-dist">0.39 UA del Sol</div>
+        </div>
+        <div class="gc-arrow">→</div>
+      </div>
+      <div class="grid-card" onclick="openPanel('venus')">
+        <div class="gc-planet venus sm"></div>
+        <div class="gc-info">
+          <div class="gc-name">Venus</div>
+          <div class="gc-dist">0.72 UA del Sol</div>
+        </div>
+        <div class="gc-arrow">→</div>
+      </div>
+      <div class="grid-card" onclick="openPanel('tierra')">
+        <div class="gc-planet tierra sm"></div>
+        <div class="gc-info">
+          <div class="gc-name">Tierra</div>
+          <div class="gc-dist">1.00 UA del Sol</div>
+        </div>
+        <div class="gc-arrow">→</div>
+      </div>
+      <div class="grid-card" onclick="openPanel('marte')">
+        <div class="gc-planet marte sm"></div>
+        <div class="gc-info">
+          <div class="gc-name">Marte</div>
+          <div class="gc-dist">1.52 UA del Sol</div>
+        </div>
+        <div class="gc-arrow">→</div>
+      </div>
+      <div class="grid-card" onclick="openPanel('jupiter')">
+        <div class="gc-planet jupiter sm"></div>
+        <div class="gc-info">
+          <div class="gc-name">Júpiter</div>
+          <div class="gc-dist">5.20 UA del Sol</div>
+        </div>
+        <div class="gc-arrow">→</div>
+      </div>
+      <div class="grid-card" onclick="openPanel('saturno')">
+        <div class="gc-planet saturno-body sm"></div>
+        <div class="gc-info">
+          <div class="gc-name">Saturno</div>
+          <div class="gc-dist">9.58 UA del Sol</div>
+        </div>
+        <div class="gc-arrow">→</div>
+      </div>
+      <div class="grid-card" onclick="openPanel('urano')">
+        <div class="gc-planet urano sm"></div>
+        <div class="gc-info">
+          <div class="gc-name">Urano</div>
+          <div class="gc-dist">19.2 UA del Sol</div>
+        </div>
+        <div class="gc-arrow">→</div>
+      </div>
+      <div class="grid-card" onclick="openPanel('neptuno')">
+        <div class="gc-planet neptuno sm"></div>
+        <div class="gc-info">
+          <div class="gc-name">Neptuno</div>
+          <div class="gc-dist">30.1 UA del Sol</div>
+        </div>
+        <div class="gc-arrow">→</div>
+      </div>
+    </section>
+
+    <footer class="site-footer">✦ Sistema Solar Interactivo — Claude × Domi ✦</footer>
+  </div>
+
+  <!-- PANEL MODAL -->
+  <div class="panel-overlay" id="overlay" onclick="closeOnOverlay(event)">
+    <div class="panel" id="panel">
+      <button class="panel-close" onclick="closePanel()">✕</button>
+      <div class="panel-planet-wrap" id="panelPlanetWrap"></div>
+      <div class="panel-content">
+        <div class="panel-emoji" id="panelEmoji"></div>
+        <h2 class="panel-name" id="panelName"></h2>
+        <p class="panel-desc" id="panelDesc"></p>
+        <div class="panel-stats" id="panelStats"></div>
+        <div class="panel-fun" id="panelFun"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
